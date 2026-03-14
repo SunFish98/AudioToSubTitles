@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "audio-to-subtitles"
+version = "0.1.0"
+description = "Generate accurate Chinese subtitles by aligning Whisper transcription with original text"
+requires-python = ">=3.9"
+dependencies = [
+    "openai-whisper>=20231117",
+    "pypinyin>=0.50.0",
+]
+
+[project.scripts]
+audio2sub = "audio_to_subtitles.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
